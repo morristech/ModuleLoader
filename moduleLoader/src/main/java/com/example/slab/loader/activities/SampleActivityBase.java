@@ -16,11 +16,15 @@
 
 package com.example.slab.loader.activities;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.slab.loader.logger.EventLogNode;
 import com.example.slab.loader.logger.Log;
+import com.example.slab.loader.logger.LogFragment;
 import com.example.slab.loader.logger.LogWrapper;
 import com.example.slab.loader.logger.MessageOnlyLogFilter;
 
@@ -41,6 +45,38 @@ public class SampleActivityBase extends AppCompatActivity {
     protected  void onStart() {
         super.onStart();
         initializeLogging();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuItem m = menu.add(Menu.NONE, 0, Menu.NONE, "Toggle log");
+        m.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == 0) {
+            toggleLogView();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    protected void toggleLogView() {
+        Fragment f = getLogFragment();
+        if (f == null) {
+            return;
+        }
+        if (f.isHidden()) {
+            getFragmentManager().beginTransaction().show(f).commitAllowingStateLoss();
+        } else {
+            getFragmentManager().beginTransaction().hide(f).commitAllowingStateLoss();
+        }
+    }
+
+    protected LogFragment getLogFragment() {
+        return null;
     }
 
     /** Set up targets to receive log data */
