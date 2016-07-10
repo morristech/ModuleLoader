@@ -31,10 +31,10 @@
 
 package com.example.slab.loader.logger;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -102,7 +102,13 @@ public class LogFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                //mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                //mScrollView.smoothScrollTo(0, mScrollView.getBottom());
+                mScrollView.post(new Runnable() {
+                    public void run() {
+                        mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+                    }
+                });
             }
         });
         return result;
