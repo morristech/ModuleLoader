@@ -6,7 +6,7 @@
     android:weightSum="3">
 
     <fragment
-        android:id="@+id/log_fragment"
+        android:id="@id/id_logfragment"
         android:name="com.example.slab.loader.logger.LogFragment"
         android:layout_width="match_parent"
         android:layout_height="0.0dp"

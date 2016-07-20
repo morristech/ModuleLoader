@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.slab.loader.R;
 import com.example.slab.loader.logger.EventLogNode;
 import com.example.slab.loader.logger.Log;
 import com.example.slab.loader.logger.LogFragment;
@@ -32,9 +33,9 @@ import com.example.slab.loader.logger.MessageOnlyLogFilter;
 /**
  * Base launcher activity, to handle most of the common plumbing for samples.
  */
-public class SampleActivityBase extends AppCompatActivity {
+public class baseLogActivity extends AppCompatActivity {
 
-    public static final String TAG = "SampleActivityBase";
+    public static final String TAG = "baseLogActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +77,7 @@ public class SampleActivityBase extends AppCompatActivity {
     }
 
     protected LogFragment getLogFragment() {
-        return null;
+        return (LogFragment) getFragmentManager().findFragmentById(R.id.id_logfragment);
     }
 
     /** Set up targets to receive log data */
