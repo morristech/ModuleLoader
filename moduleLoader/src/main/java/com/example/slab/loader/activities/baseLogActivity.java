@@ -33,9 +33,9 @@ import com.example.slab.loader.logger.MessageOnlyLogFilter;
 /**
  * Base launcher activity, to handle most of the common plumbing for samples.
  */
-public class baseLogActivity extends AppCompatActivity {
+public class BaseLogActivity extends AppCompatActivity {
 
-    public static final String TAG = "baseLogActivity";
+    public static final String TAG = "BaseLogActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
