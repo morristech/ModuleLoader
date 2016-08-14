@@ -22,6 +22,7 @@ package="com.example.slab.loader"
 <application>
 
     <activity
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         android:name=".MainActivity"
         >
         <intent-filter>
