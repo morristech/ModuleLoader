@@ -1,1 +1,1 @@
-include ':app', ':moduleLoader'
+include ':app', ':moduleLoader', ':common'
